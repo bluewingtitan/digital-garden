@@ -88,7 +88,6 @@
         }
 
         .garden-header {
-            border-bottom: 1px solid var(--border);
             background: var(--surface);
         }
 
@@ -330,13 +329,10 @@
         </div>
     </header>
 
-    <!-- main content column — max-width constrained, centred -->
-    <div class="mw7 center ph3 ph4-ns pv5 pv6-ns">
-
-        <article>
-
-            <!-- ── LIST VIEW (IsListPage = true) ── -->
-            {{if .IsListPage}}
+    {{if .IsListPage}}
+    <!-- ── LIST VIEW: full surface background, post cards in --bg ── -->
+    <div style="background: var(--surface);">
+        <div class="mw7 center ph3 ph4-ns pv5 pv6-ns">
 
             <h1 class="f2 fw6 lh-title mt0 mb4" style="font-family:'Newsreader',Georgia,serif;color:#f0e0c0;">{{if .SearchQuery}}Search{{else}}Posts{{end}}{{if
                 .FilterTags}} <span class="f5 fw4" style="color:#7a6040;">tagged: {{range $i, $t := .FilterTags}}{{if $i}},
@@ -353,11 +349,11 @@
             {{if .SearchQuery}}<p class="f6 mb4" style="color:#7a6040;">Results for <em
                     style="color:#9e8060;">{{.SearchQuery}}</em></p>{{end}}
 
-            <!-- post list; each item: title, optional date, optional description -->
+            <!-- post list; each item is a card on --bg -->
             {{if .Posts}}
             <ul class="list pl0 mt0">
                 {{range .Posts}}
-                <li class="mb5 pb4" style="border-bottom:1px solid #3d3020;">
+                <li class="mb3" style="background: var(--bg); border-radius: 8px; padding: 1.25rem 1.5rem;">
                     <a href="/posts/{{.Slug}}" class="post-list-title no-underline db f4 fw6 lh-title mb1">{{.Title}}</a>
                     {{if .DateStr}}<time class="f6 db mb1"
                         style="color:#7a6040; font-family:'Montserrat',sans-serif; font-style:italic;">{{.DateStr}}</time>{{end}}
@@ -390,22 +386,29 @@
             </nav>
             {{end}}
 
-            <!-- ── SINGLE POST VIEW (IsListPage = false) ── -->
-            {{else}}
+        </div>
+    </div>
 
-            <!-- title & date header -->
+    {{else}}
+    <!-- ── SINGLE POST VIEW ── -->
+
+    <!-- surface band: title, date, author -->
+    <div style="background: var(--surface);">
+        <div class="mw7 center ph3 ph4-ns pt5 pt6-ns pb5">
             {{if .Title}}
             <h1 class="f2 f1-ns fw6 lh-title mt0 mb2" style="font-family:'Newsreader',Georgia,serif;color:#f0e0c0;">{{.Title}}</h1>
             {{end}}
             {{if .DateStr}}<time datetime="{{.DateISO}}" class="f6 db mb1"
                 style="color:#7a6040; font-family:'Montserrat',sans-serif; font-style:italic;">{{.DateStr}}</time>{{end}}
             {{if .Author}}
-            <p class="f6 mt0 mb5" style="color:#7a6040; font-family:'Montserrat',sans-serif;">by {{.Author}}</p>
-            {{else}}
-            {{if .DateStr}}<div class="mb5"></div>{{end}}
+            <p class="f6 mt0 mb0" style="color:#7a6040; font-family:'Montserrat',sans-serif;">by {{.Author}}</p>
             {{end}}
+        </div>
+    </div>
 
-            <!-- rendered markdown body -->
+    <!-- bg band: rendered content + tags -->
+    <div style="background: var(--bg);">
+        <div class="mw7 center ph3 ph4-ns pv5 pv6-ns">
             <div class="post-body lh-copy f5">
                 {{.Content}}
             </div>
@@ -416,18 +419,19 @@
                 {{range .Tags}}<a href="/posts?tags={{.}}" class="tag-pill">{{.}}</a>{{end}}
             </div>
             {{end}}
-
-            {{end}}
-        </article>
-
+        </div>
     </div>
 
-    <!-- footer — content from builtin/footer.md -->
+    {{end}}
+
+    <!-- footer — surface background -->
     {{if .FooterContent}}
-    <footer class="mw7 center ph3 ph4-ns pb5 pt4 post-body footer">
-        <div class="pt4" style="border-top:1px solid #3d3020;"></div>
-        <div class="f7 tc" style="color:#7a6040; font-family:'Montserrat',sans-serif; font-style:italic;">{{.FooterContent}}</div>
-    </footer>
+    <div style="background: var(--surface);">
+        <footer class="mw7 center ph3 ph4-ns pb5 pt4 post-body footer">
+            <div class="pt4" style="border-top:1px solid #3d3020;"></div>
+            <div class="f7 tc" style="color:#7a6040; font-family:'Montserrat',sans-serif; font-style:italic;">{{.FooterContent}}</div>
+        </footer>
+    </div>
     {{end}}
 
     <!-- plugins from config.plugins -->
