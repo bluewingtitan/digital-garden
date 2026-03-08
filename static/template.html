@@ -63,18 +63,18 @@
 
     <style>
         :root {
-            --bg:           #1b2018;
-            --surface:      #232b20;
-            --border:       #304535;
-            --text:         #c8ddbf;
-            --text-bright:  #e6f5dc;
-            --text-muted:   #6a8f62;
-            --text-muted2:  #88aa80;
-            --accent:       #8fd47a;
-            --accent-hover: #a8e694;
-            --tag-bg:       #1e3524;
-            --code-bg:      #161e14;
-            --code-text:    #aad899;
+            --bg:           #1a1510;
+            --surface:      #221c13;
+            --border:       #3d3020;
+            --text:         #d4b896;
+            --text-bright:  #f0e0c0;
+            --text-muted:   #7a6040;
+            --text-muted2:  #9e8060;
+            --accent:       #c87c4a;
+            --accent-hover: #dc9860;
+            --tag-bg:       #2c1e10;
+            --code-bg:      #130f09;
+            --code-text:    #c8a068;
         }
 
         body {
@@ -263,7 +263,7 @@
         }
 
         .tag-pill:hover {
-            background: #253f2c;
+            background: #3d2a14;
         }
 
         .footer a {
@@ -300,7 +300,7 @@
         }
 
         .garden-search-btn:hover {
-            background: #253f2c;
+            background: #3d2a14;
         }
 
         .post-list-title {
@@ -338,8 +338,8 @@
             <!-- ── LIST VIEW (IsListPage = true) ── -->
             {{if .IsListPage}}
 
-            <h1 class="f2 fw6 lh-title mt0 mb4" style="font-family:'Playfair Display',Georgia,serif;color:#e6f5dc;">{{if .SearchQuery}}Search{{else}}Posts{{end}}{{if
-                .FilterTags}} <span class="f5 fw4" style="color:#6a8f62;">tagged: {{range $i, $t := .FilterTags}}{{if $i}},
+            <h1 class="f2 fw6 lh-title mt0 mb4" style="font-family:'Playfair Display',Georgia,serif;color:#f0e0c0;">{{if .SearchQuery}}Search{{else}}Posts{{end}}{{if
+                .FilterTags}} <span class="f5 fw4" style="color:#7a6040;">tagged: {{range $i, $t := .FilterTags}}{{if $i}},
                     {{end}}{{$t}}{{end}}</span>{{end}}</h1>
 
             <form action="/search" method="GET" class="mb5">
@@ -350,41 +350,41 @@
                 </div>
             </form>
 
-            {{if .SearchQuery}}<p class="f6 mb4" style="color:#6a8f62;">Results for <em
-                    style="color:#88aa80;">{{.SearchQuery}}</em></p>{{end}}
+            {{if .SearchQuery}}<p class="f6 mb4" style="color:#7a6040;">Results for <em
+                    style="color:#9e8060;">{{.SearchQuery}}</em></p>{{end}}
 
             <!-- post list; each item: title, optional date, optional description -->
             {{if .Posts}}
             <ul class="list pl0 mt0">
                 {{range .Posts}}
-                <li class="mb5 pb4" style="border-bottom:1px solid #304535;">
+                <li class="mb5 pb4" style="border-bottom:1px solid #3d3020;">
                     <a href="/posts/{{.Slug}}" class="post-list-title no-underline db f4 fw6 lh-title mb1">{{.Title}}</a>
                     {{if .DateStr}}<time class="f6 db mb1"
-                        style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">{{.DateStr}}</time>{{end}}
-                    {{if .Author}}<p class="f6 mt0 mb1" style="color:#6a8f62;">by {{.Author}}</p>{{end}}
-                    {{if .Description}}<p class="f5 lh-copy mt0 mb1" style="color:#88aa80; font-family:'Lora',serif;">{{.Description}}</p>{{end}}
+                        style="color:#7a6040; font-family:'Lora',serif; font-style:italic;">{{.DateStr}}</time>{{end}}
+                    {{if .Author}}<p class="f6 mt0 mb1" style="color:#7a6040;">by {{.Author}}</p>{{end}}
+                    {{if .Description}}<p class="f5 lh-copy mt0 mb1" style="color:#9e8060; font-family:'Lora',serif;">{{.Description}}</p>{{end}}
                     {{if .Tags}}<p class="mt1 mb0">{{range .Tags}}<a href="/posts?tags={{.}}" class="tag-pill">{{.}}</a>{{end}}</p>{{end}}
                 </li>
                 {{end}}
             </ul>
             {{else}}
-            <p style="color:#6a8f62; font-style:italic;">Nothing planted here yet. 🌱</p>
+            <p style="color:#7a6040; font-style:italic;">Nothing planted here yet. 🌱</p>
             {{end}}
 
             <!-- pagination — only shown when there is more than one page -->
             {{if or .Pagination.HasPrev .Pagination.HasNext}}
-            <nav class="flex justify-between mt5 pt4" style="border-top:1px solid #304535;">
+            <nav class="flex justify-between mt5 pt4" style="border-top:1px solid #3d3020;">
                 <span>
                     {{if .Pagination.HasPrev}}
                     <a href="/posts?page={{.Pagination.PrevPage}}{{.Pagination.TagParam}}"
-                        class="no-underline f6" style="color:#8fd47a; font-family:'Lora',serif;">← newer</a>
+                        class="no-underline f6" style="color:#c87c4a; font-family:'Lora',serif;">← newer</a>
                     {{end}}
                 </span>
-                <span class="f6" style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">page {{.Pagination.Page}} of {{.Pagination.TotalPages}}</span>
+                <span class="f6" style="color:#7a6040; font-family:'Lora',serif; font-style:italic;">page {{.Pagination.Page}} of {{.Pagination.TotalPages}}</span>
                 <span>
                     {{if .Pagination.HasNext}}
                     <a href="/posts?page={{.Pagination.NextPage}}{{.Pagination.TagParam}}"
-                        class="no-underline f6" style="color:#8fd47a; font-family:'Lora',serif;">older →</a>
+                        class="no-underline f6" style="color:#c87c4a; font-family:'Lora',serif;">older →</a>
                     {{end}}
                 </span>
             </nav>
@@ -395,12 +395,12 @@
 
             <!-- title & date header -->
             {{if .Title}}
-            <h1 class="f2 f1-ns fw6 lh-title mt0 mb2" style="font-family:'Playfair Display',Georgia,serif;color:#e6f5dc;">{{.Title}}</h1>
+            <h1 class="f2 f1-ns fw6 lh-title mt0 mb2" style="font-family:'Playfair Display',Georgia,serif;color:#f0e0c0;">{{.Title}}</h1>
             {{end}}
             {{if .DateStr}}<time datetime="{{.DateISO}}" class="f6 db mb1"
-                style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">{{.DateStr}}</time>{{end}}
+                style="color:#7a6040; font-family:'Lora',serif; font-style:italic;">{{.DateStr}}</time>{{end}}
             {{if .Author}}
-            <p class="f6 mt0 mb5" style="color:#6a8f62; font-family:'Lora',serif;">by {{.Author}}</p>
+            <p class="f6 mt0 mb5" style="color:#7a6040; font-family:'Lora',serif;">by {{.Author}}</p>
             {{else}}
             {{if .DateStr}}<div class="mb5"></div>{{end}}
             {{end}}
@@ -411,8 +411,8 @@
             </div>
 
             {{if .Tags}}
-            <div class="mt4 pt3" style="border-top:1px solid #304535;">
-                <span class="f7 mr2" style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">tagged:</span>
+            <div class="mt4 pt3" style="border-top:1px solid #3d3020;">
+                <span class="f7 mr2" style="color:#7a6040; font-family:'Lora',serif; font-style:italic;">tagged:</span>
                 {{range .Tags}}<a href="/posts?tags={{.}}" class="tag-pill">{{.}}</a>{{end}}
             </div>
             {{end}}
@@ -425,8 +425,8 @@
     <!-- footer — content from builtin/footer.md -->
     {{if .FooterContent}}
     <footer class="mw7 center ph3 ph4-ns pb5 pt4 post-body footer">
-        <div class="pt4" style="border-top:1px solid #304535;"></div>
-        <div class="f7 tc" style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">{{.FooterContent}}</div>
+        <div class="pt4" style="border-top:1px solid #3d3020;"></div>
+        <div class="f7 tc" style="color:#7a6040; font-family:'Lora',serif; font-style:italic;">{{.FooterContent}}</div>
     </footer>
     {{end}}
 
