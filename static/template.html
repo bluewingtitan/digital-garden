@@ -312,6 +312,22 @@
         .post-list-title:hover {
             color: var(--accent-hover);
         }
+
+        .post-card {
+            position: relative;
+        }
+
+        .post-card-link::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+        }
+
+        .post-card .tag-pill {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -353,8 +369,8 @@
             {{if .Posts}}
             <ul class="list pl0 mt0">
                 {{range .Posts}}
-                <li class="mb3" style="background: var(--bg); border-radius: 8px; padding: 1.25rem 1.5rem;">
-                    <a href="/posts/{{.Slug}}" class="post-list-title no-underline db f4 fw6 lh-title mb1">{{.Title}}</a>
+                <li class="mb3 post-card" style="background: var(--bg); border-radius: 8px; padding: 1.25rem 1.5rem;">
+                    <a href="/posts/{{.Slug}}" class="post-list-title post-card-link no-underline db f4 fw6 lh-title mb1">{{.Title}}</a>
                     {{if .DateStr}}<time class="f6 db mb1"
                         style="color:#7a6040; font-family:'Montserrat',sans-serif; font-style:italic;">{{.DateStr}}</time>{{end}}
                     {{if .Author}}<p class="f6 mt0 mb1" style="color:#7a6040;">by {{.Author}}</p>{{end}}
