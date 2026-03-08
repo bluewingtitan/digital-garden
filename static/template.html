@@ -200,11 +200,10 @@
 <body class="sans-serif near-white">
 
     <!-- brand banner -->
-    <header style="border-bottom:1px solid #3a2648;">
+    <header style="border-bottom:1px solid #3a2648;background:linear-gradient(to right,#1e1229,#2d1f3d);">
         <div class="mw7 center ph3 ph4-ns pv3 flex items-center justify-between">
-            <a href="/" class="no-underline flex items-center" style="gap:.5rem;">
+            <a href="/" class="no-underline flex items-center">
                 <span class="f5 fw6 tracked-tight" style="color:#eaf2be;">{{.BlogName}}</span>
-                <span class="f6" style="color:#5c426b;">&#x2F;</span>
             </a>
             <nav class="flex items-center" style="gap:1.5rem;">
                 {{range .NavLinks}}<a href="{{.URL}}" class="no-underline f6" style="color:#87669a;">{{.Name}}</a>{{end}}
