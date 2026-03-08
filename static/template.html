@@ -56,27 +56,80 @@
   </script>
     {{end}}
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
 
     <style>
-        body {
-            background: #120d1a;
+        :root {
+            --bg:           #1b2018;
+            --surface:      #232b20;
+            --border:       #304535;
+            --text:         #c8ddbf;
+            --text-bright:  #e6f5dc;
+            --text-muted:   #6a8f62;
+            --text-muted2:  #88aa80;
+            --accent:       #8fd47a;
+            --accent-hover: #a8e694;
+            --tag-bg:       #1e3524;
+            --code-bg:      #161e14;
+            --code-text:    #aad899;
         }
 
-        /* .post-body — scoped styles for markdown-rendered HTML (no utility classes on generated tags) */
+        body {
+            background: var(--bg);
+            font-family: 'Lora', Georgia, serif;
+            color: var(--text);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .garden-header {
+            border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .garden-blogname {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            letter-spacing: -.01em;
+        }
+
+        .garden-nav a {
+            color: var(--text-muted2);
+            text-decoration: none;
+            font-family: 'Lora', Georgia, serif;
+            font-size: .875rem;
+            transition: color .15s;
+        }
+
+        .garden-nav a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* .post-body — scoped styles for markdown-rendered HTML */
         .post-body {
-            color: #eaf2be;
+            color: var(--text);
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
         .post-body h1,
         .post-body h2,
         .post-body h3,
         .post-body h4 {
-            color: #eaf2be;
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--text-bright);
             font-weight: 600;
             line-height: 1.25;
-            margin-top: 2rem;
-            margin-bottom: .5rem;
+            margin-top: 2.25rem;
+            margin-bottom: .6rem;
         }
 
         .post-body h1 {
@@ -85,7 +138,7 @@
 
         .post-body h2 {
             font-size: 1.375rem;
-            border-bottom: 1px solid #5c426b;
+            border-bottom: 1px solid var(--border);
             padding-bottom: .35rem;
         }
 
@@ -95,55 +148,61 @@
 
         .post-body p {
             margin-top: 0;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
         }
 
         .post-body a {
-            color: #c6d47c;
+            color: var(--accent);
             text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color .15s;
         }
 
         .post-body a:hover {
-            text-decoration: underline;
+            border-bottom-color: var(--accent-hover);
         }
 
         .post-body strong {
-            color: #eaf2be;
+            color: var(--text-bright);
         }
 
         .post-body em {
-            color: #a0b678;
+            color: var(--text-muted2);
+            font-style: italic;
         }
 
         .post-body code {
-            background: #1e1229;
-            color: #c6d47c;
-            padding: .1em .35em;
-            border-radius: 3px;
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: .1em .4em;
+            border-radius: 4px;
             font-size: .875em;
-            font-family: 'SFMono-Regular', Menlo, Consolas, monospace;
+            font-family: 'JetBrains Mono', 'Fira Code', Menlo, monospace;
         }
 
         .post-body pre {
-            background: #1e1229;
+            background: var(--code-bg);
+            border: 1px solid var(--border);
             padding: 1rem 1.25rem;
-            border-radius: 6px;
+            border-radius: 8px;
             overflow-x: auto;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
         .post-body pre code {
             background: none;
             padding: 0;
-            font-size: .85em;
-            color: #c6d47c;
+            font-size: .875em;
+            font-family: 'JetBrains Mono', 'Fira Code', Menlo, monospace;
+            color: var(--code-text);
         }
 
         .post-body blockquote {
-            border-left: 3px solid #5c426b;
-            margin: 0 0 1rem;
-            padding: .5rem 0 .5rem 1rem;
-            color: #a0b678;
+            border-left: 3px solid var(--accent);
+            margin: 0 0 1.1rem;
+            padding: .6rem 0 .6rem 1.1rem;
+            color: var(--text-muted2);
+            font-style: italic;
         }
 
         .post-body blockquote p {
@@ -153,60 +212,120 @@
         .post-body ul,
         .post-body ol {
             padding-left: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
         }
 
         .post-body li {
-            margin-bottom: .25rem;
+            margin-bottom: .35rem;
         }
 
         .post-body hr {
             border: none;
-            border-top: 1px solid #5c426b;
-            margin: 2rem 0;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
         }
 
         .post-body img {
             max-width: 100%;
             height: auto;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
         .post-body table {
             border-collapse: collapse;
             width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
         }
 
         .post-body th,
         .post-body td {
-            border: 1px solid #5c426b;
+            border: 1px solid var(--border);
             padding: .5rem .75rem;
             text-align: left;
         }
 
         .post-body th {
-            background: #1e1229;
-            color: #eaf2be;
+            background: var(--surface);
+            color: var(--text-bright);
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .tag-pill {
+            background: var(--tag-bg);
+            color: var(--accent);
+            border-radius: 4px;
+            font-size: .75rem;
+            padding: .15em .6em;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: .25rem;
+            transition: background .15s;
+        }
+
+        .tag-pill:hover {
+            background: #253f2c;
         }
 
         .footer a {
-            color: #eaf2be;
+            color: var(--text-muted2);
             text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        .garden-search-input {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            font-family: 'Lora', Georgia, serif;
+            outline: none;
+            transition: border-color .15s;
+        }
+
+        .garden-search-input:focus {
+            border-color: var(--accent);
+        }
+
+        .garden-search-btn {
+            background: var(--tag-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--accent);
+            font-family: 'Lora', Georgia, serif;
+            cursor: pointer;
+            transition: background .15s;
+        }
+
+        .garden-search-btn:hover {
+            background: #253f2c;
+        }
+
+        .post-list-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--text-bright);
+            text-decoration: none;
+        }
+
+        .post-list-title:hover {
+            color: var(--accent-hover);
         }
     </style>
 </head>
 
-<body class="sans-serif near-white">
+<body>
 
     <!-- brand banner -->
-    <header style="border-bottom:1px solid #3a2648;background:linear-gradient(to right,#1e1229,#2d1f3d);">
+    <header class="garden-header">
         <div class="mw7 center ph3 ph4-ns pv3 flex items-center justify-between">
-            <a href="/" class="no-underline flex items-center">
-                <span class="f5 fw6 tracked-tight" style="color:#eaf2be;">{{.BlogName}}</span>
+            <a href="/" class="no-underline flex items-center" style="gap:.6rem;">
+                <span style="font-size:1.25rem;">🌿</span>
+                <span class="garden-blogname">{{.BlogName}}</span>
             </a>
-            <nav class="flex items-center" style="gap:1.5rem;">
-                {{range .NavLinks}}<a href="{{.URL}}" class="no-underline f6" style="color:#87669a;">{{.Name}}</a>{{end}}
+            <nav class="garden-nav flex items-center" style="gap:1.75rem;">
+                {{range .NavLinks}}<a href="{{.URL}}">{{.Name}}</a>{{end}}
             </nav>
         </div>
     </header>
@@ -219,58 +338,53 @@
             <!-- ── LIST VIEW (IsListPage = true) ── -->
             {{if .IsListPage}}
 
-            <h1 class="f2 fw6 lh-title mt0 mb4" style="color:#eaf2be;">{{if .SearchQuery}}Search{{else}}Posts{{end}}{{if
-                .FilterTags}} <span class="f5 fw4" style="color:#87669a;">tagged: {{range $i, $t := .FilterTags}}{{if $i}},
+            <h1 class="f2 fw6 lh-title mt0 mb4" style="font-family:'Playfair Display',Georgia,serif;color:#e6f5dc;">{{if .SearchQuery}}Search{{else}}Posts{{end}}{{if
+                .FilterTags}} <span class="f5 fw4" style="color:#6a8f62;">tagged: {{range $i, $t := .FilterTags}}{{if $i}},
                     {{end}}{{$t}}{{end}}</span>{{end}}</h1>
 
             <form action="/search" method="GET" class="mb5">
                 <div class="flex" style="gap:.5rem;">
                     <input type="search" name="q" value="{{.SearchQuery}}" placeholder="Search posts…"
-                        class="flex-auto f6 ph3 pv2"
-                        style="background:#1e1229;border:1px solid #5c426b;border-radius:4px;color:#eaf2be;outline:none;">
-                    <button type="submit" class="f6 ph3 pv2 pointer"
-                        style="background:#2d1f3d;border:1px solid #5c426b;border-radius:4px;color:#c6d47c;cursor:pointer;">Search</button>
+                        class="garden-search-input flex-auto f6 ph3 pv2">
+                    <button type="submit" class="garden-search-btn f6 ph3 pv2">Search</button>
                 </div>
             </form>
 
-            {{if .SearchQuery}}<p class="f6 mb4" style="color:#87669a;">Results for <em
-                    style="color:#a0b678;">{{.SearchQuery}}</em></p>{{end}}
+            {{if .SearchQuery}}<p class="f6 mb4" style="color:#6a8f62;">Results for <em
+                    style="color:#88aa80;">{{.SearchQuery}}</em></p>{{end}}
 
             <!-- post list; each item: title, optional date, optional description -->
             {{if .Posts}}
             <ul class="list pl0 mt0">
                 {{range .Posts}}
-                <li class="mb5 pb4" style="border-bottom:1px solid #3a2648;">
-                    <a href="/posts/{{.Slug}}" class="no-underline db f4 fw6 lh-title mb1"
-                        style="color:#eaf2be;">{{.Title}}</a>
-                    {{if .DateStr}}<time class="f6 ttu tracked db mb1"
-                        style="color:#87669a; letter-spacing:.1em;">{{.DateStr}}</time>{{end}}
-                    {{if .Author}}<p class="f6 mt0 mb1" style="color:#87669a;">by {{.Author}}</p>{{end}}
-                    {{if .Description}}<p class="f5 lh-copy mt0 mb0" style="color:#a0b678;">{{.Description}}</p>{{end}}
-                    {{if .Tags}}<p class="mt1 mb0">{{range .Tags}}<a href="/posts?tags={{.}}"
-                            class="no-underline f7 mr1 ph2 pv1"
-                            style="background:#2d1f3d;color:#c6d47c;border-radius:3px;">{{.}}</a>{{end}}</p>{{end}}
+                <li class="mb5 pb4" style="border-bottom:1px solid #304535;">
+                    <a href="/posts/{{.Slug}}" class="post-list-title no-underline db f4 fw6 lh-title mb1">{{.Title}}</a>
+                    {{if .DateStr}}<time class="f6 db mb1"
+                        style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">{{.DateStr}}</time>{{end}}
+                    {{if .Author}}<p class="f6 mt0 mb1" style="color:#6a8f62;">by {{.Author}}</p>{{end}}
+                    {{if .Description}}<p class="f5 lh-copy mt0 mb1" style="color:#88aa80; font-family:'Lora',serif;">{{.Description}}</p>{{end}}
+                    {{if .Tags}}<p class="mt1 mb0">{{range .Tags}}<a href="/posts?tags={{.}}" class="tag-pill">{{.}}</a>{{end}}</p>{{end}}
                 </li>
                 {{end}}
             </ul>
             {{else}}
-            <p style="color:#87669a;">No posts yet.</p>
+            <p style="color:#6a8f62; font-style:italic;">Nothing planted here yet. 🌱</p>
             {{end}}
 
             <!-- pagination — only shown when there is more than one page -->
             {{if or .Pagination.HasPrev .Pagination.HasNext}}
-            <nav class="flex justify-between mt5 pt4" style="border-top:1px solid #3a2648;">
+            <nav class="flex justify-between mt5 pt4" style="border-top:1px solid #304535;">
                 <span>
                     {{if .Pagination.HasPrev}}
                     <a href="/posts?page={{.Pagination.PrevPage}}{{.Pagination.TagParam}}"
-                        class="no-underline f6 ttu tracked" style="color:#c6d47c; letter-spacing:.1em;">← newer</a>
+                        class="no-underline f6" style="color:#8fd47a; font-family:'Lora',serif;">← newer</a>
                     {{end}}
                 </span>
-                <span class="f6" style="color:#87669a;">page {{.Pagination.Page}} / {{.Pagination.TotalPages}}</span>
+                <span class="f6" style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">page {{.Pagination.Page}} of {{.Pagination.TotalPages}}</span>
                 <span>
                     {{if .Pagination.HasNext}}
                     <a href="/posts?page={{.Pagination.NextPage}}{{.Pagination.TagParam}}"
-                        class="no-underline f6 ttu tracked" style="color:#c6d47c; letter-spacing:.1em;">older →</a>
+                        class="no-underline f6" style="color:#8fd47a; font-family:'Lora',serif;">older →</a>
                     {{end}}
                 </span>
             </nav>
@@ -281,12 +395,12 @@
 
             <!-- title & date header -->
             {{if .Title}}
-            <h1 class="f2 f1-ns fw6 lh-title mt0 mb2" style="color:#eaf2be;">{{.Title}}</h1>
+            <h1 class="f2 f1-ns fw6 lh-title mt0 mb2" style="font-family:'Playfair Display',Georgia,serif;color:#e6f5dc;">{{.Title}}</h1>
             {{end}}
-            {{if .DateStr}}<time datetime="{{.DateISO}}" class="f6 ttu tracked db mb1"
-                style="color:#87669a; letter-spacing:.1em;">{{.DateStr}}</time>{{end}}
+            {{if .DateStr}}<time datetime="{{.DateISO}}" class="f6 db mb1"
+                style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">{{.DateStr}}</time>{{end}}
             {{if .Author}}
-            <p class="f6 mt0 mb5" style="color:#87669a;">by {{.Author}}</p>
+            <p class="f6 mt0 mb5" style="color:#6a8f62; font-family:'Lora',serif;">by {{.Author}}</p>
             {{else}}
             {{if .DateStr}}<div class="mb5"></div>{{end}}
             {{end}}
@@ -297,10 +411,9 @@
             </div>
 
             {{if .Tags}}
-            <div class="mt4 pt3" style="border-top:1px solid #3a2648;">
-                <span class="f7 ttu tracked mr2" style="color:#87669a;">Tags</span>
-                {{range .Tags}}<a href="/posts?tags={{.}}" class="no-underline f7 mr1 ph2 pv1"
-                    style="background:#2d1f3d;color:#c6d47c;border-radius:3px;">{{.}}</a>{{end}}
+            <div class="mt4 pt3" style="border-top:1px solid #304535;">
+                <span class="f7 mr2" style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">tagged:</span>
+                {{range .Tags}}<a href="/posts?tags={{.}}" class="tag-pill">{{.}}</a>{{end}}
             </div>
             {{end}}
 
@@ -311,8 +424,9 @@
 
     <!-- footer — content from builtin/footer.md -->
     {{if .FooterContent}}
-    <footer class="mw7 center ph3 ph4-ns pb5 pt0 post-body footer">
-        <div class="f7 tc" style="color:#87669a;">{{.FooterContent}}</div>
+    <footer class="mw7 center ph3 ph4-ns pb5 pt4 post-body footer">
+        <div class="pt4" style="border-top:1px solid #304535;"></div>
+        <div class="f7 tc" style="color:#6a8f62; font-family:'Lora',serif; font-style:italic;">{{.FooterContent}}</div>
     </footer>
     {{end}}
 
