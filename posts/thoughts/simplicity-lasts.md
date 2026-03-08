@@ -3,6 +3,10 @@ title: "Something about complexity, simplicity, and hope."
 description: "After years of watching overcomplicated systems collapse under their own weight, I learned to believe in simplicity. Here's why your blog doesn't need a cluster, and why file systems will outlast us all."
 date: 2026-03-08T20:16:00Z
 author: bwt
+tags:
+  - minimalism
+  - software-engineering
+  - web-development
 ---
 
 > An idiot admires complexity, a genius admires simplicity  
