@@ -34,4 +34,4 @@ sources:
     dir: posts
 
 plugins:
- - https://github.com/5000K/5000blogs/releases/download/v0.2.1/sort-tables.js
+ - https://garden.yuyu.blue/media/sort-tables.js
