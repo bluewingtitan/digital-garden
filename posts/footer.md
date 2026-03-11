@@ -1,7 +1,6 @@
 ---
 title: Footer
 visible: false
-rss-visible: false
 ---
 
 [RSS Feed](/feed.xml) ● [Atom Feed](/feed.atom)  
