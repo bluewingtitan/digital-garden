@@ -1,0 +1,34 @@
+# any PRs addressing this file will be closed without review.
+address: ":8080"
+
+blog_name: "bwt garden"
+
+site_url: https://garden.yuyu.blue
+
+paths:
+  posts: ""
+  template: "https://raw.githubusercontent.com/bluewingtitan/digital-garden/refs/heads/main/static/template.html"
+  icon: "https://raw.githubusercontent.com/bluewingtitan/digital-garden/refs/heads/main/static/icon.png"
+
+rss_content: "text"
+feed_description: "bluewingtitans digital garden - a collection of evergrowing notes, ideas and writeups"
+
+page_size: 10
+
+log_level: "info"
+
+og_image:
+  bg_color: "#1a1510"
+  text_color: "#d4b896"
+  sub_color: "#7a6040"
+  accent_color: "#c87c4a"
+  cache_size: 64
+
+nav_links:
+  - name: "Posts"
+    url: "/posts"
+
+sources:
+  - type: git
+    url: https://github.com/bluewingtitan/digital-garden
+    dir: posts
