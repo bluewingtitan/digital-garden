@@ -12,7 +12,7 @@ tags:
 > An idiot admires complexity, a genius admires simplicity  
 > ~ Terry A. Davis
 
-Having spent the last 7 or so years working in software development (which might not be a lot by your standards, but I started with 18, so...), I have developed quite a few strong feelings about this topic. I have seen mountains of distributed systems rise and fall. I have seen talented engineers shifting them around. I have seen people, how they invented new tooling to keep the ever growing pile manageable. Creating services on top of services on top of… - you get the gist. Then adding some meta-services to keep some of the more hidden ones monitored and well.
+Having spent the last 7 or so years working in software development , I have developed quite a few strong feelings about this topic. I have seen mountains of distributed systems rise and fall. I have seen talented engineers shifting them around. I have seen people, how they invented new tooling to keep the ever growing pile manageable. Creating services on top of services on top of… - you get the gist. Then adding some meta-services to keep some of the more hidden ones monitored and well.
 
 I have seen Kubernetes clusters hosting a few static files. Content management systems hosting a few markdown files. Handwritten, custom registries distributing patches that should have been included in the published binary itself.
 
