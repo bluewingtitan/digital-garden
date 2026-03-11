@@ -30,8 +30,8 @@ nav_links:
 
 sources:
   - type: git
-    url: https://github.com/bluewingtitan/digital-garden
+    url: "https://github.com/bluewingtitan/digital-garden"
     dir: posts
 
 plugins:
- - https://garden.yuyu.blue/media/sort-tables.js
+  - "https://garden.yuyu.blue/media/sort-tables.js"
