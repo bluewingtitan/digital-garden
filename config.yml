@@ -7,7 +7,7 @@ site_url: https://garden.yuyu.blue
 
 paths:
   posts: ""
-  template: "https://raw.githubusercontent.com/bluewingtitan/digital-garden/refs/heads/main/static/template.html"
+  template: "https://raw.githubusercontent.com/5000K/5000blogs/refs/heads/main/template/template.garden.html"
   icon: "https://raw.githubusercontent.com/bluewingtitan/digital-garden/refs/heads/main/static/icon.png"
 
 rss_content: "text"
