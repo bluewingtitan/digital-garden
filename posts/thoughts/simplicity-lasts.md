@@ -1,6 +1,6 @@
 ---
-title: "Something about complexity, simplicity, and hope."
-description: "After years of watching overcomplicated systems collapse under their own weight, I learned to believe in simplicity. Here's why your blog doesn't need a cluster, and why file systems will outlast us all."
+title: Something about complexity, simplicity, and hope.
+description: Why complexity and longevity are often exclusionary. A love song to the simple things.
 date: 2026-03-08
 author: bwt
 tags:
