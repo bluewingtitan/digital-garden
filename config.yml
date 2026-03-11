@@ -32,3 +32,6 @@ sources:
   - type: git
     url: https://github.com/bluewingtitan/digital-garden
     dir: posts
+
+plugins:
+ - https://github.com/5000K/5000blogs/releases/download/v0.2.1/sort-tables.js
