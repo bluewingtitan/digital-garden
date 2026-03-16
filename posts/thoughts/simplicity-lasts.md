@@ -41,5 +41,3 @@ So I sat down for two days to ultimately solve this problem in the simplest way 
 This little corner of the internet is defined by a few markdown files and a single html template. And a simple server ([5000blogs](https://github.com/5000K/5000blogs)) combining them. There is no database I manage. Literally no input OR output besides a config file, the markdown files I author, and a simple, static template. I could move to any markdown-based static page generator, or to something new entirely. I could put my blog into Obsidian Publish, or on GitHub Pages if I get sick of the current solution. I am ultimately free.
 
 Because **obviously** there is no reason you should **ever** need more than that to serve a blog with some basic functionality like tags, automatic content updates via git and some quality of life like a full-text search. The web page you are looking at has literally no javascript, and that's by design. When you load the page, you send a basic GET request and my server answers with a single file. And once that is done, nothing and nobody will ever know that you were here. There is a certain peace in that.
-
-Anyways, I am me, and I am here now. Hello.
