@@ -2,7 +2,6 @@
 title: Something about complexity, simplicity, and hope.
 description: Why complexity and longevity are often exclusionary. A love song to the simple things.
 date: 2026-03-08
-author: bwt
 tags:
   - minimalism
   - software-engineering
